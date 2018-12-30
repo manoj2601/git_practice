@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 using namespace std;
 
 int main()
@@ -11,14 +12,21 @@ int main()
         int a;
         cin>>a;
         int count=0;
+        stack<int> s;
         queue<int> q;
         while(a != 0)
         {
             int b=a%10;
-            q.push(b);
+            s.push(b);
             a=a/10;
             count++;
         }
+        for (int c=0; c<count; c++)
+        {
+        	q.push(s.top());
+        	s.pop();
+		}
+		
         for(int k=0; k<count; k++)
         {
             for (int j=0; j<count; j++)
